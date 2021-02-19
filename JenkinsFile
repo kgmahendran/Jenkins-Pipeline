@@ -1,11 +1,12 @@
 pipeline {
-  agent any
+  agent any {
     stages {
       stage('Welcome') {
         steps {
           echo "Test is sucessful"
-        }
-      }
-    }
+				}
+			}
+		}
+	}
 }
   
