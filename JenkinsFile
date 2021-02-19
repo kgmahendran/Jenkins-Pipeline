@@ -1,11 +1,25 @@
 pipeline {
-  agent any {
+  agent any 
     stages {
-      stage('Welcome') {
-        steps {
-          echo "Test is sucessful"
-				}
+      stage('Compile') {
+		steps {
+          echo "Compile is sucessful"
 			}
+		}
+		stage ('Junit') {
+			steps {
+				echo "Junit is sucessful"
+			}		
+		}
+		stage ('Build') {
+			steps {
+				echo "Build is sucessful"
+			}		
+		}
+		stage ('Deploy') {
+			steps {
+				echo "Deploy is sucessful"
+			}		
 		}
 	}
 }
