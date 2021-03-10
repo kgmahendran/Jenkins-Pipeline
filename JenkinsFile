@@ -6,19 +6,40 @@ pipeline {
 		git 'Default'
 	}
     stages {
+	
       stage('SCM-Checkout') {
 		steps {
           echo "Cloning the source from github"
 		  git branch: 'master', credentialsId: '12afdeaa-e9f3-4be8-bc17-64ccba068dbe', url: 'https://github.com/kgmahendran/Jenkins-Pipeline.git'
 			}
 		}
+		
 		stage ('Maven-Build') {
 			steps {
 				echo "Run the Maven command to build the application"
 				bat label: '', script: 'mvn clean install'
 			}		
 		}
+		
+		stage ('Artifcatory-Upload') {
+			steps {
+				rtUpload (
+					serverId: 'central',
+					spec: '''{
+						"files": [
+										{
+										"pattern": "target/*.war",
+										"target": "Demo-Upload/"
+										}
+									]
+								}''',
+								buildName: '${env.JOB_NAME}',
+								buildNumber: '${env.BUILD_NUMBER}'
+							)
+					}
+			}
 	}
+	
 		post {
 		always {
 		archiveArtifacts artifacts: 'target/*.war', followSymlinks: false, onlyIfSuccessful: true, fingerprint: true
