@@ -18,6 +18,11 @@ pipeline {
 				bat label: '', script: 'mvn clean install'
 			}		
 		}
+		post {
+		always {
+		archiveArtifacts artifacts: 'target/*.war', followSymlinks: false, onlyIfSuccessful: true, fingerprint: true
+			}
+		}
 	}
 }
   
