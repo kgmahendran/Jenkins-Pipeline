@@ -36,8 +36,7 @@ pipeline {
 										}
 									]
 								}''',
-								buildName=$JOB_NAME,
-								buildNumber=$BUILD_NUMBER
+								buildName='Pipeline-Groovy'
 							)
 					}
 			}
