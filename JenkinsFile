@@ -1,10 +1,13 @@
 pipeline {
+
   agent any 
+  
 	tools {
 		maven 'MAVEN_HOME'
 		jdk 'JAVA_HOME'
 		git 'Default'
 	}
+	
     stages {
 	
       stage('SCM-Checkout') {
