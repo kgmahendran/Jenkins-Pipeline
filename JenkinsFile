@@ -29,7 +29,7 @@ pipeline {
 						"files": [
 										{
 										"pattern": "target/*.war",
-										"target": "Demo-Upload/$buildName/$buildNumber/"
+										"target": "Demo-Upload/$JOB_NAME/$BUILD_NUMBER/"
 										}
 									]
 								}''',
