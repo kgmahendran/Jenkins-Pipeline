@@ -33,8 +33,8 @@ pipeline {
 										}
 									]
 								}''',
-								buildName: '${env.JOB_NAME}',
-								buildNumber: '${env.BUILD_NUMBER}'
+								buildName: '${JOB_NAME}',
+								buildNumber: '${BUILD_NUMBER}'
 							)
 					}
 			}
