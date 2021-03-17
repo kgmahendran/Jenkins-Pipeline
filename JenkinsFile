@@ -9,8 +9,10 @@ pipeline {
 	
       stage('SCM-Checkout') {
 		steps {
-          echo "Cloning the source from github"
-		  git branch: 'master', credentialsId: '12afdeaa-e9f3-4be8-bc17-64ccba068dbe', url: 'https://github.com/kgmahendran/Jenkins-Pipeline.git'
+		withCredentials([usernamePassword(credentialsId: 'MAHENDRAN_GIT_CLONE', passwordVariable: 'Jaddu@12345', usernameVariable: 'kgmahendran')])
+ 
+          		echo "Cloning the source from github"
+		  git branch: 'master', credentialsId: 'MAHENDRAN_GIT_CLONE', url: 'https://github.com/kgmahendran/Jenkins-Pipeline.git'
 			}
 		}
 		
